@@ -14,6 +14,9 @@
 		5D09D52628CB711900BF37E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D09D52528CB711900BF37E4 /* Assets.xcassets */; };
 		5D09D52928CB711900BF37E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D09D52728CB711900BF37E4 /* LaunchScreen.storyboard */; };
 		5DE3327D28D781C40046D2DB /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE3327C28D781C40046D2DB /* Notifications.swift */; };
+		5DE3328028D8CB200046D2DB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5DE3327F28D8CB200046D2DB /* GoogleService-Info.plist */; };
+		5DE3328328D8CEEB0046D2DB /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 5DE3328228D8CEEB0046D2DB /* FirebaseAnalytics */; };
+		5DE3328528D8CEEB0046D2DB /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 5DE3328428D8CEEB0046D2DB /* FirebaseMessaging */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +30,7 @@
 		5D09D52A28CB711900BF37E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DE3327C28D781C40046D2DB /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		5DE3327E28D787380046D2DB /* InspireVerbier.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InspireVerbier.entitlements; sourceTree = "<group>"; };
+		5DE3327F28D8CB200046D2DB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +38,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DE3328528D8CEEB0046D2DB /* FirebaseMessaging in Frameworks */,
+				5DE3328328D8CEEB0046D2DB /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +73,7 @@
 				5D09D52528CB711900BF37E4 /* Assets.xcassets */,
 				5D09D52728CB711900BF37E4 /* LaunchScreen.storyboard */,
 				5D09D52A28CB711900BF37E4 /* Info.plist */,
+				5DE3327F28D8CB200046D2DB /* GoogleService-Info.plist */,
 				5DE3327C28D781C40046D2DB /* Notifications.swift */,
 			);
 			path = InspireVerbier;
@@ -88,6 +95,10 @@
 			dependencies = (
 			);
 			name = InspireVerbier;
+			packageProductDependencies = (
+				5DE3328228D8CEEB0046D2DB /* FirebaseAnalytics */,
+				5DE3328428D8CEEB0046D2DB /* FirebaseMessaging */,
+			);
 			productName = InspireVerbier;
 			productReference = 5D09D51928CB711900BF37E4 /* InspireVerbier.app */;
 			productType = "com.apple.product-type.application";
@@ -116,6 +127,9 @@
 				Base,
 			);
 			mainGroup = 5D09D51028CB711900BF37E4;
+			packageReferences = (
+				5DE3328128D8CEEB0046D2DB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 5D09D51A28CB711900BF37E4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -131,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D09D52928CB711900BF37E4 /* LaunchScreen.storyboard in Resources */,
+				5DE3328028D8CB200046D2DB /* GoogleService-Info.plist in Resources */,
 				5D09D52628CB711900BF37E4 /* Assets.xcassets in Resources */,
 				5D09D52428CB711900BF37E4 /* Main.storyboard in Resources */,
 			);
@@ -368,6 +383,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5DE3328128D8CEEB0046D2DB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5DE3328228D8CEEB0046D2DB /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5DE3328128D8CEEB0046D2DB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		5DE3328428D8CEEB0046D2DB /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5DE3328128D8CEEB0046D2DB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5D09D51128CB711900BF37E4 /* Project object */;
 }

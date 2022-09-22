@@ -35,13 +35,17 @@ class ViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         webView.allowsBackForwardNavigationGestures = true
         webView.load(request)
         if webView.canGoBack == false {
-            backButton.isEnabled = false}
+            backButton.isEnabled = false} else { backButton.isEnabled = true }
+        if webView.canGoForward == false {
+            forwardButton.isEnabled = false} else { forwardButton.isEnabled = true }
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
                 
         if webView.canGoBack == false {
-            backButton.isEnabled = false}
+            backButton.isEnabled = false} else { backButton.isEnabled = true }
+        if webView.canGoForward == false {
+            forwardButton.isEnabled = false} else { forwardButton.isEnabled = true }
         
         guard
         let url = navigationAction.request.url,
@@ -111,7 +115,7 @@ class ViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
        backButton.isEnabled = webView.canGoBack
       forwardButton.isEnabled = webView.canGoForward
-            //   print ("BackButton is " \backButton.isEnabled)
+          
 
         
    }

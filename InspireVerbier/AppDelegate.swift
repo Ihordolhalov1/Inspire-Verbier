@@ -7,6 +7,7 @@
 
 import UIKit
 import UserNotifications
+import FirebaseCore
 
 
 @main
@@ -21,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         notifications.requestAutorization()
         notifications.notificationCenter.delegate = notifications
         UIApplication.shared.applicationIconBadgeNumber = 0
-        //FirebaseApp.configure()
+        FirebaseApp.configure()
         
         return true
     }
