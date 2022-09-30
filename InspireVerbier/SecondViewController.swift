@@ -8,9 +8,11 @@
 import UIKit
 import WebKit
 
-class ViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
+
+class SecondViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
    
-    
+   
+
 
     @IBOutlet weak var webView: WKWebView!
   
@@ -21,6 +23,8 @@ class ViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         webView.uiDelegate = self
         
         webView.navigationDelegate = self
@@ -115,8 +119,7 @@ class ViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
        backButton.isEnabled = webView.canGoBack
       forwardButton.isEnabled = webView.canGoForward
-          
-
-        
-   }
+          }
+    
+    
 }
