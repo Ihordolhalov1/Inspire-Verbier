@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IyT-PE-Ksz">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
@@ -14,11 +14,11 @@
             <objects>
                 <viewController storyboardIdentifier="SecondViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="SecondViewController" customModule="InspireVerbier" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iEn-en-goh">
-                                <rect key="frame" x="0.0" y="62.5" width="375" height="604.5"/>
+                                <rect key="frame" x="0.0" y="109.66666666666669" width="390" height="700.33333333333326"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -26,7 +26,7 @@
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gv7-JR-P8W">
-                                <rect key="frame" x="26" y="20" width="62" height="34.5"/>
+                                <rect key="frame" x="26" y="67" width="62" height="34.666666666666657"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Back"/>
                                 <connections>
@@ -34,7 +34,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0P-rb-l1p">
-                                <rect key="frame" x="279.5" y="20" width="86.5" height="34.5"/>
+                                <rect key="frame" x="294.66666666666669" y="67" width="86.333333333333314" height="34.666666666666657"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Forward"/>
                                 <connections>
@@ -73,14 +73,14 @@
             <objects>
                 <viewController storyboardIdentifier="FirstViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IyT-PE-Ksz" customClass="FirstViewController" customModule="InspireVerbier" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iCb-1B-zBg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="InspireFirst.png" translatesAutoresizingMaskIntoConstraints="NO" id="hHY-ee-vJK">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INSPIRE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Mb-EP-Qy8">
-                                <rect key="frame" x="115.5" y="73" width="144" height="45.5"/>
+                                <rect key="frame" x="123" y="87" width="144" height="45.666666666666657"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="144" id="xfx-MW-n6d"/>
                                 </constraints>
@@ -89,7 +89,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THE HEART OF YOUR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rSU-Q6-LJr">
-                                <rect key="frame" x="166" y="148.5" width="193" height="23"/>
+                                <rect key="frame" x="181" y="162.66666666666666" width="193" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="193" id="gHc-D2-CfN"/>
                                 </constraints>
@@ -98,7 +98,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HEALTH AND FITNESS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4U9-fE-b99">
-                                <rect key="frame" x="156" y="181.5" width="203" height="23"/>
+                                <rect key="frame" x="171" y="195.66666666666666" width="203" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="193" id="hFK-B1-74E"/>
                                 </constraints>
@@ -107,7 +107,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JOURNEY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qEv-ii-jhb">
-                                <rect key="frame" x="268" y="214.5" width="91" height="23"/>
+                                <rect key="frame" x="283" y="228.66666666666666" width="91" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="91" id="gxW-Xh-1lr"/>
                                 </constraints>
@@ -116,7 +116,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GM9-XP-E8e">
-                                <rect key="frame" x="97.5" y="557" width="180" height="50"/>
+                                <rect key="frame" x="105" y="700" width="180" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="aes-oE-WAM"/>
@@ -140,7 +140,7 @@
                             <constraint firstItem="plk-T7-Rcd" firstAttribute="trailing" secondItem="rSU-Q6-LJr" secondAttribute="trailing" constant="16" id="7nf-cw-Iir"/>
                             <constraint firstItem="4U9-fE-b99" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="plk-T7-Rcd" secondAttribute="leading" symbolic="YES" id="AEY-Jn-EtD"/>
                             <constraint firstAttribute="bottom" secondItem="hHY-ee-vJK" secondAttribute="bottom" id="CC6-U7-M8Z"/>
-                            <constraint firstItem="5Mb-EP-Qy8" firstAttribute="top" secondItem="plk-T7-Rcd" secondAttribute="top" constant="73" id="DY7-3D-tVq"/>
+                            <constraint firstItem="5Mb-EP-Qy8" firstAttribute="top" secondItem="plk-T7-Rcd" secondAttribute="top" constant="40" id="DY7-3D-tVq"/>
                             <constraint firstItem="qEv-ii-jhb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="plk-T7-Rcd" secondAttribute="leading" symbolic="YES" id="MVY-uR-5cj"/>
                             <constraint firstItem="hHY-ee-vJK" firstAttribute="trailing" secondItem="plk-T7-Rcd" secondAttribute="trailing" id="OCQ-3R-8kp"/>
                             <constraint firstItem="qEv-ii-jhb" firstAttribute="top" secondItem="4U9-fE-b99" secondAttribute="bottom" constant="10" id="S4m-4V-PAq"/>

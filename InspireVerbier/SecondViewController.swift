@@ -7,6 +7,7 @@
 
 import UIKit
 import WebKit
+import AppTrackingTransparency
 
 
 class SecondViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
@@ -33,10 +34,37 @@ class SecondViewController: UIViewController, WKNavigationDelegate, WKUIDelegate
         
         let url = URL(string: "https://www.inspireverbier.com/timetable")
         //let url = URL(string: "https://www.apple.com")
-        let request = URLRequest(url: url!)
+        var request = URLRequest(url: url!)
         //webView.configuration.preferences.javaScriptEnabled = true
         webView.configuration.defaultWebpagePreferences.allowsContentJavaScript = true
         webView.allowsBackForwardNavigationGestures = true
+        
+        // Знову перевіряємо чи маємо дозвіл на трекінг, якщо ні - видалити кукіс
+        guard #available(iOS 14, *) else { return }
+        ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
+                  DispatchQueue.main.async {
+                      ATTrackingManager.requestTrackingAuthorization {status in
+                          switch status {
+                              // Проверяем status
+                          case .notDetermined:
+                              print ("notDetermined")
+                          case .restricted:
+                              print ("restricted")
+                          case .denied:
+                              print ("denied")
+                              //видалити кукіс і ніколи іх не збирати
+                              request.httpShouldHandleCookies = false
+                              HTTPCookieStorage.shared.cookieAcceptPolicy = .never
+                          case .authorized:
+                              print ("authorized")
+                          @unknown default:
+                              print ("unknown")
+                          }
+                      }
+                  }
+        })
+
+        // Загружаємо склад сторінки
         webView.load(request)
         if webView.canGoBack == false {
             backButton.isEnabled = false} else { backButton.isEnabled = true }

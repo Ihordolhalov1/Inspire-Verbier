@@ -48,7 +48,7 @@ class FirstViewController: UIViewController {
                           case .restricted:
                               print ("restricted")
                           case .denied:
-                              let alertController = UIAlertController(title: nil, message: "Sorry, we need your agreement. Please go to settings to allow or exit the application", preferredStyle: .alert)
+                              let alertController = UIAlertController(title: nil, message: "Sorry, tracking is a highly desireble for the application to remember your preferances. Please go to settings to allow", preferredStyle: .alert)
                               let allowAction = UIAlertAction(title: "Allow", style: .default) {_ in
                                   //Переход в настройки приложения
                                   if let url = URL(string: UIApplication.openSettingsURLString) {
@@ -56,13 +56,15 @@ class FirstViewController: UIViewController {
                                           UIApplication.shared.open(url, options: [:], completionHandler: nil)
                                       }
                                   }
-                                  
                               }
-                              let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+                              let cancelAction = UIAlertAction(title: "Cancel", style: .destructive) {_ in
+                                  self.performSegue(withIdentifier: "secondVCSegue", sender: nil)}
+                              
                               alertController.addAction(allowAction)
                               alertController.addAction(cancelAction)
                               self.present(alertController, animated: true)
                               print ("denied")
+                              
                           case .authorized:
                               print ("authorized")
                                   // Переходим на второй контроллер
