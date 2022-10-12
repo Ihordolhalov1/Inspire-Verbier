@@ -48,7 +48,9 @@ class FirstViewController: UIViewController {
                           case .restricted:
                               print ("restricted")
                           case .denied:
-                              let alertController = UIAlertController(title: nil, message: "Sorry, tracking is a highly desireble for the application to remember your preferances. Please go to settings to allow", preferredStyle: .alert)
+                              
+                                  //Тут прописан алерт контроллер, окно просьбой передумать и перейти в настройки чтоб разрешить трекинг с двумя кнопками, перейти в настройки или отмена. Пришлось закомментировать так как Apple не пропускает
+                            /* let alertController = UIAlertController(title: nil, message: "Sorry, tracking is a highly desireble for the application to remember your preferances. Please go to settings to allow", preferredStyle: .alert)
                               let allowAction = UIAlertAction(title: "Allow", style: .default) {_ in
                                   //Переход в настройки приложения
                                   if let url = URL(string: UIApplication.openSettingsURLString) {
@@ -62,8 +64,10 @@ class FirstViewController: UIViewController {
                               
                               alertController.addAction(allowAction)
                               alertController.addAction(cancelAction)
-                              self.present(alertController, animated: true)
+                              self.present(alertController, animated: true) */
                               print ("denied")
+                              self.performSegue(withIdentifier: "secondVCSegue", sender: nil)
+                              
                               
                           case .authorized:
                               print ("authorized")
