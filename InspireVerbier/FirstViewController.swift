@@ -16,6 +16,25 @@ class FirstViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        DispatchQueue.main.async {
+            
+            // показати алерт контроллер якщо прийшов пуш з текстом пуша
+            if body != "" {
+                let alert = UIAlertController(title: "",
+                                              message: body,
+                                              preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Got it", style: .default) { (action) in
+                }
+                
+                alert.addAction(okAction)
+                self.present(alert, animated: true, completion: nil)
+                body = ""
+            } else { print(body) }
+        }
+    }
+    
+    
     @IBAction func contunueButtonPressed(_ sender: UIButton) {
         requestTrackingAuthorization()
     }

@@ -21,6 +21,8 @@ class SecondViewController: UIViewController, WKNavigationDelegate, WKUIDelegate
     
     @IBOutlet weak var forwardButton: UIButton!
     
+    
+    
     // инициализируем activityIndicator чтоб он появился после кнопки book на время загрузки следующей страницы
     lazy var activityIndicator: UIActivityIndicatorView = {
     let indicator = UIActivityIndicatorView(style: .medium)
@@ -35,6 +37,7 @@ class SecondViewController: UIViewController, WKNavigationDelegate, WKUIDelegate
         webView.uiDelegate = self
         webView.navigationDelegate = self
         backButton.isEnabled = false
+    //    homeButton.isEnabled = backButton.isEnabled
         forwardButton.isEnabled = false
         
         let url = URL(string: "https://www.inspireverbier.com/timetable")
@@ -43,14 +46,18 @@ class SecondViewController: UIViewController, WKNavigationDelegate, WKUIDelegate
         webView.configuration.defaultWebpagePreferences.allowsContentJavaScript = true
         webView.allowsBackForwardNavigationGestures = true
   
-        // Загружаємо склад сторінки
+        webView.addObserver(self, forKeyPath: "URL", options: .new, context: nil) // добавляем наблюдателя на изменение url адреса в браузере
+        
+        // Загружаем содержимое страницы
      
         webView.load(request)
         
         view.addSubview(activityIndicator)
         
         if webView.canGoBack == false {
-            backButton.isEnabled = false} else { backButton.isEnabled = true }
+            backButton.isEnabled = false} else { backButton.isEnabled = true
+           //     homeButton.isEnabled = backButton.isEnabled
+            }
         if webView.canGoForward == false {
             forwardButton.isEnabled = false} else { forwardButton.isEnabled = true }
     }
@@ -58,7 +65,9 @@ class SecondViewController: UIViewController, WKNavigationDelegate, WKUIDelegate
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
                 
         if webView.canGoBack == false {
-            backButton.isEnabled = false} else { backButton.isEnabled = true }
+            backButton.isEnabled = false} else { backButton.isEnabled = true
+          //      homeButton.isEnabled = backButton.isEnabled
+            }
         if webView.canGoForward == false {
             forwardButton.isEnabled = false} else { forwardButton.isEnabled = true }
         
@@ -113,7 +122,14 @@ class SecondViewController: UIViewController, WKNavigationDelegate, WKUIDelegate
         decisionHandler(.allow)
     }
 
-   
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == #keyPath(WKWebView.url) {  // отработка обозревателя на изменение url
+              print("Изменена URL:", self.webView.url!)
+                backButton.isEnabled = true
+            }
+
+          }
+    
     func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
         if navigationAction.targetFrame == nil {
                     webView.load(navigationAction.request)
@@ -134,6 +150,17 @@ class SecondViewController: UIViewController, WKNavigationDelegate, WKUIDelegate
             forwardButton.isEnabled = true
             webView.goForward()}
     }
+    @IBAction func homeAction(_ sender: UIButton) {
+        let url = URL(string: "https://www.inspireverbier.com/timetable")
+        let request = URLRequest(url: url!)
+        webView.load(request)
+    }
+    
+  /*  @IBAction func homeAction(_ sender: UIButton) {
+        let url = URL(string: "https://www.inspireverbier.com/timetable")
+        let request = URLRequest(url: url!)
+        webView.load(request)
+    }*/
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
               // Знову перевіряємо чи маємо дозвіл на трекінг, якщо ні - видалити кукіс

@@ -97,6 +97,12 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
         didReceive response: UNNotificationResponse,
         withCompletionHandler completionHandler: @escaping () -> Void) {
             UIApplication.shared.applicationIconBadgeNumber = -1
+            
+            body = response.notification.request.content.body // передача тіла пуша в глобальну переменну body
+            print("***********************************")
+            print("Пришло сообщение с текстом:  \(body)")
+            print("***********************************")
+
         }
     
    /* // тут прописана дія що робити коли прийшло повідомлення
